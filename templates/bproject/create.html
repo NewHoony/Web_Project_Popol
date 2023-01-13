@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block con %}
+
+<div class ="container-fluid a" style="color: white;">
+
+    <div class="container" style="padding-top: 75px;">
+        <h1><b>Create Project</b></h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}  
+                <div class="mb-3 mt-3" style="padding-top: 25px;">
+                    <label class="form-label">WRITER</label>
+                    <input type="text" class="form-control" value="{{ user }}" style="width:fit-content"  disabled>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">SUBJECT</label>
+                    <input type="text" class="form-control"  name ="pro" placeholder="제목 입력">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Using Tech</label>
+                    <input type="text" class="form-control"  name ="tech" placeholder="사용 기술 입력">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">CONTENT</label>
+                    <textarea class="form-control" style="resize : none; height : 300px;" name ="con" placeholder="내용 입력" style="height: 150px;"></textarea>
+                </div>
+
+                <div class="text-end mt-4">
+                    <button class="btn btn-outline-light" type="button" onclick="makesel()">Image ADD</button>
+                    <button class="btn btn-outline-light">Project Upload</button>
+                </div>
+                <div id="here" class="row mt-5">
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    function makesel(){
+        d = document.getElementById("here");
+        n = document.createElement("div");
+        n.setAttribute("class", "col-lg-4 mt-5");
+        n.innerHTML = '<input type="file" name="cpic" class="form-control mt-3 mb-3">\
+        <textarea placeholder="보기설명" name="ccon" class="form-control"></textarea>';
+        d.appendChild(n);
+    }
+</script>
+
+{% endblock%}
+

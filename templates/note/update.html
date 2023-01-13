@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block con %}
+
+<div class ="container-fluid a" style="color: white;">
+
+    <div class="container-fluid pb-3" style="padding-top: 50px;">
+        <h1><b>Update Page</b></h1><br>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-lg-2 text-center" style="padding-top: 10px;">
+                    <label class="form-label">SUBJECT</label><br>
+                    <input tpye="text" placeholder="subject" name="sub" value="{{b.subject}}"><br><br>
+                    <label class="form-label">WRITER</label><br>
+                    <input tpye="text" placeholder="writer" name="wri" value="{{b.writer}}"><br>
+                    <br>
+                    <div>
+                        <button class="btn btn-outline-light">Update</button>
+                        <a href ="{% url 'note:show' b.id %}"><button type="button" class="btn btn-outline-light">뒤로가기</button></a>
+                    </div>
+                    <br>
+                </div>
+                <div class="col-lg-10" style="padding-top: 10px;"> 
+                    <label class="form-label">CONTENT</label><br>
+                    <textarea cols ="100" name ="con" style="height: 650px; width: 100%;">{{b.content}}</textarea><br>
+                </div>
+            </div>
+           
+
+        </form>
+    </div>
+
+
+</div>
+{% endblock%}
+

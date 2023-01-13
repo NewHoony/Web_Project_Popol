@@ -1,0 +1,282 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block con %}
+
+
+        <div class="container-fluid a" style="display: flex; color: white;">
+
+            <div class="a" style="margin-top: 100px; padding-left: 250px; width: 700px;">
+                <h1 class="title text-center">Plan</h1>
+                <div class="row justify-content-around mt-5">
+                    <div class="col-4" style="background-color: rgb(24, 78, 172);">
+                      1. Linux 자격증
+                    </div>
+                    <div class="col-4" style="background-color: rgb(132, 143, 161);">
+                      2. AWS 자격증
+                    </div>
+                </div>
+                <div class="row justify-content-around mt-5">
+                    <div class="col-4" style="background-color: rgb(24, 78, 172);">
+                      3. 포트폴리오 작성
+                    </div>
+                    <div class="col-4" style="background-color: rgb(132, 143, 161);">
+                      4. 취업
+                    </div>
+                </div>
+            </div>  
+        </div>
+
+            
+
+{% endblock%}
+
+{% block noauth %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@6.8.4/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <script src="https://unpkg.com/swiper@6.8.4/swiper-bundle.min.js"></script>
+</head>
+
+<div class="container-fluid a">
+ 
+    <div class="promotion" style="display: flex;">
+        <div class="swiper-container" style="height: 800px; min-width: 890px;">
+            <div class="swiper-wrapper">
+
+                    <div class="swiper-slide">
+                        <div class="container-fluid text-center mt-2" style="color: white; font-size: 45px; width: max-content; padding-top: 20px;">
+                            💡After registering and logging in, check the detailed information😁↗️
+                        </div>
+                        <div class="container-fluid text-center" style="padding-top: 75px;">
+                            <img src="/static/main/astronaut-with-space-shuttle.gif" style="width: fit-content ; height: 500px;">       
+                            <!-- <img src="https://d2908q01vomqb2.cloudfront.net/1b6453892473a467d07372d45eb05abc2031647a/2018/09/11/spaceship.gif" style="width: 1000px; height:350px;"> -->
+                        </div>
+                        <div class="container-fluid text-center" style="padding-top: 75px; color: white;">
+                            <h1>On the voyage to become a Cloud engineer</h1>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="swiper-slide">
+                        <div class="container-fluid" style="color: white; padding-top: 100px;">
+                            <h2>Ability to use AWS</h2>
+                        </div>
+                            <div class="row container-fluid" style="width: fit-content; color:white; padding-top: 100px;">
+                                <div class="row justify-content-around">
+                                    <div class="col-4 text-center">
+                                        <h5>✨Building Instances Using EC2</h5>
+                                        <img src="/static/main/EC2.png" style="width: fit-content; height: 200px;">
+                                    </div>
+                                    <div class="col-4 text-center" style="padding-right: 75px;">
+                                        <h5>✨Building a storage server using S3</h5>
+                                        <img src="/static/main/s3.png" style="width: fit-content; height: 200px;">  
+                                    </div>
+                                    <div class="col-4 text-center">
+                                        <h5>✨Leveraging Your Code with AWS Lambda</h5>
+                                        <img src="/static/main/Lambda.png" style="width: fit-content; height: 200px;">   
+                                    </div>
+                                </div>
+                                <div class="row justify-content-evenly" style="padding-top: 75px;">
+                                    <div class="col-6 text-center">
+                                        <img src="/static/main/RDS.png" style="width: fit-content; height: 200px;">
+                                        <h5>✨Amazon RDS relational database service</h5>
+                                    </div>
+                                    <div class="col-6 text-center">
+                                        <img src="/static/main/vpc.png" style="width: fit-content; height: 200px;"> 
+                                        <h5>✨Amazon VPC Isolation Cloud Management</h5>
+                                    </div>
+                                </div>                            
+                            </div>
+                    </div>
+                    
+                    
+                    <div class="swiper-slide">
+                        <div class="container-fluid" style="color: white; padding-top: 100px;">
+                            <h2>Use of Windows Linux Operating System</h2>
+                        </div>
+
+                        <div class="row container-fluid" style="color:white; padding-top: 100px;">
+                            <div class="col-12" style="padding-top: 20px;">
+                                <div class="justify-content-center" style="display: flex;">
+                                    <div>       
+                                        <img src="/static/main/Linux.png" style="width: fit-content; height:150px; padding-right: 50px;">
+                                        <img src="/static/main/ubuntu.png" style="width: fit-content; height:150px;">
+                                    </div>
+                                    <div style="padding-left: 100px; padding-top: 50px; width: fit-content;">
+                                        <h3>Build dns, web, DB server using Linux and Nginx, uWSGI from Web</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12" style="padding-top: 100px;">  
+                                <div class="justify-content-center" style="display: flex;">
+                                    <div>      
+                                        <img src="/static/main/window.png" style="width: fit-content; height:150px;">
+                                    </div>
+                                    <div style="padding-left: 100px; padding-top: 50px; width: fit-content;">
+                                        <h3>Window Server operation using Active Directory Domain Services </h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>  
+                    </div>
+                 
+                    
+                 
+                    <div class="swiper-slide">
+                        <div class="row container-fluid" style="padding-top: 75px; color:white;">       
+                            <h1>Web</h1><br><br><br>
+                            <h4>Python, django framework, html,css,js bootstrap, git</h4>
+                        </div>
+                        <div class="row justify-content-evenly" style="height: 200px; padding-top: 75px;">
+                            <img src="/static/main/python.png" style="width: 100px; height:100px;">
+                            <img src="/static/main/django.png" style="width: 100px; height:100px;">
+                            <img src="/static/main/html.png" style="width: 100px; height:100px;">
+                            <img src="/static/main/css.png" style="width: 100px; height:100px;">
+                            <img src="/static/main/javascript.png" style="width: 100px; height:100px;">
+                            <img src="/static/main/bootstrap.png" style="width: 100px; height:100px;">
+                            <img src="/static/main/github.png" style="width: 100px; height:100px;">
+                        </div>
+                        <div class="text-center" style="height: 300px; padding-top: 100px; color: white;">
+                            <h4>파이썬, 장고를 통한 웹 서버 기능 구현</h4><br><br>
+                            <h4>HTML, CSS, JS, Bootstrap을 통해 웹 사이트 제작</h4><br><br>
+                            <h4>Git hub, bash를 이용한 웹 사이트 배포 및 공유</h4><br>
+
+                        </div>         
+                    </div>
+              
+ 
+
+                  
+
+                    <div class="swiper-slide">
+                        <div class="container-fluid mt-5" style="width:500px">
+                            <div class="text-center" style="color: white; width: fit-content; height:300px;">
+                                <div class="d-flex justify-content-around" style="padding-top: 40px;">
+                                    <h1>Abilty</h1>
+                                    <div class="p-2" style="font-size:12px">
+                                        Python<br><br>
+                                        React<br><br>
+                                        Django<br><br>
+                                        Java Script<br><br>
+                                        CSS<br><br>
+                                    </div>
+                                    <div class="p-2" style="font-size:12px">
+                                        AWS EC2<br><br>
+                                        AWS S3<br><br>
+                                        AWS Lambda<br><br>
+                                    </div>
+                                    <div class="p-2" style="font-size:12px">
+                                        Ubuntu<br><br>
+                                        Cent OS<br><br>
+                                        Window Server<br><br>
+                                    </div>
+                                </div>
+                                <div class="mt-5 mb-5 text-center">
+                                    <span class="material-symbols-outlined">
+                                        browse_activity
+                                    </span><br>
+                                        Made by Hoon 2022.DEC
+                                </div>
+                            </div>
+                        </div>
+                    </div>                      
+            </div>
+           
+        </div>
+
+        <div style="padding-right: 40px;  width: 50px; height: auto;">
+            <div>
+                <span class="swiper-prev material-symbols-outlined" style="color: white; font-size: 40px;">
+                    expand_less
+                </span>
+                 
+            </div>
+
+            <div style="padding-top: 790px;">
+            <span class="swiper-next material-symbols-outlined" style="color: white; font-size: 40px;">
+                expand_more
+            </span> 
+            </div>
+            
+        </div>
+    </div>
+    
+</div>
+</html>
+<script>
+   new Swiper('.promotion .swiper-container', {
+        direction: 'vertical',
+        slidesPerView: 1, // 한번에 보여줄 슬라이드 개수
+        spaceBetween: 0, // 슬라이드 사이 여백
+        centeredSlides: true, // 1번 슬라이드가 가운데 부터 보이기
+        loopAdditionalSlides : 4,
+        loop: false, // 반복 재생
+        autoplay: { 
+            delay: 5000, 
+            disableOnInteraction: false,
+        }, // autoplay: 자동 재생, delay: 지연시간, disableOnInteractions : false로 설정하면 사용자 상호 작용 (스와이프) 후 자동 재생이 비활성화되지 않으며 상호 작용 후 매번 다시 시작
+        pagination: {
+        el: '.promotion .swiper-pagination', // 페이지 이동 버튼을 담을 태그
+        clickable: true // 페이지 이동 버튼 클릭 가능 여부
+        },
+        navigation: {
+        prevEl: '.promotion .swiper-prev', // 이전 요소
+        nextEl: '.promotion .swiper-next', // 다음 요소
+        
+        }
+        });
+
+</script>
+<script>
+
+    function activeHeightSet() {
+
+
+
+        var activeHt = $(".swiper-slide-active .mainImg").height();
+
+        eventActiveHt(activeHt);
+
+        scrollUp();
+
+    }
+
+    function eventActiveHt(activeHt) {
+
+        $(".swiper-container").stop(true).animate(
+
+            {
+
+            },
+
+            100
+
+        );
+
+    }
+
+    function scrollUp() {
+
+        $("body, html").stop(true).animate(
+
+            {
+
+            scrollTop: "0",
+
+            },
+
+            1000
+
+        );
+
+    }
+
+    swiper.on("slideChangeTransitionStart", activeHeightSet);
+
+</script>
+       
+{% endblock %}

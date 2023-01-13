@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block con %}
+
+<div class="a" style="color: white; padding-top: 50px;">
+    <div class ="container mt-5 mb-5">
+        <h1><b>BOOK MARK</b></h1>
+    
+        <div class="text-end">
+            <a  href="{% url 'mark:create' %}" class="btn btn-outline-light">BOOK MARK MAKE</a>
+        </div>
+
+        <div class="row" style="color: black;">
+            {% for i in bset %}
+            <div class="col-lg-4 mt-5 ">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"><b>{% if i.impo %}★{% endif %}{{ i.site_name }}</b></h5>
+                        <p class="card-text" style="height: 50px;">{{ i.site_con }}</p>
+                        <div class="text-end">
+                        <a href ="{% url 'mark:delete' i.id %}"><button class="btn btn-outline-dark">Delete</button></a>
+                        <a href="{{ i.site_url }}" targer="_blank" class="btn btn-outline-dark">LINK</a>
+                        </div>
+                     </div>
+                 </div>
+             </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</div>
+
+
+
+
+{% endblock%}

@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block con %}
+
+<div class ="container-fluid a" style="color: white;">
+    <div class="text-center" style="padding-top: 75px;">
+        <h1><b>{{pro.project}}</b></h1><br>
+    </div>
+
+    <div class="row" style="width: 100%;">
+        <div class="col-lg-4 text-center" style="display: flex;"> 
+            <div style="padding-left: 30px;">     
+                <hr>
+                <b>Use Technology  : {{pro.tech}}</b><br>
+                <hr>
+                {% for i in phset %}
+                <div class="col-lg-6" style="width: 100%; height: auto;">
+                    <div class="text-end">
+                    <h5>{{ i.con }}</h5>
+                    </div>  
+                    <img src="{{ i.pic.url }}" width="100%; height: 50%;"><hr>
+                </div>
+                {% endfor %}
+                <hr>
+            </div>
+        </div>
+        
+        <div class="col-lg-8 text-center" style="padding-top:15px; padding-left: 45px;">
+                <img src="{{ pro.maker.getpic }}" width="10%"> 
+                <h5>{{ pro.maker }}</h5>
+                <b>작성일 : </b>{{pro.pubdate | date:'Y년 n월 j일 H:i' }}<br><br>
+            
+                <a href = "/bproject/index"><button class ="btn btn-outline-light">목록</button></a>
+                {% if user == pro.maker %}
+                    <a href ="{% url 'bproject:update' pro.id %}"><button type="button" class="btn btn-outline-light">Edit</button></a>
+                    <a href = "{% url 'bproject:delete' pro.id %}"><button type="button" class="btn btn-outline-danger">Del</button></a><br><br>
+                {% endif %}
+                <button type="button" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#star">
+                BookMark
+                </button><br><br>
+                <textarea class="form-control"  disabled style="resize : none;width : 100%; height : 65%;">{{ pro.content }}</textarea>
+        </div> 
+    </div> 
+</div>
+
+
+
+
+{% endblock%}
+
+
+<!-- <form method="post">
+    {% csrf_token %}
+    <div class="row mt-5">
+        <div class="text-end">
+            <button class="btn btn-dark btn-lg">Select</button>
+        </div>
+        <div class="text-end mt-3">
+            <a href="{% url 'aproject:index' %}"><button class="btn btn-dark">뒤로가기</button></a>
+        </div>
+        {% for i in phset %}
+            <div class="col-lg-4 mt-3">
+                <img src="{{ i.pic.url }}" width="100%">
+                <div class="text-center mt-3 mb-3">
+                    <div class="form-check">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            <h5><b>{{ i.projcet }}</b></h5>
+                        </label>                            
+                    </div>                     
+                </div>
+                <textarea class="form-control" style="height: 20px;" disabled>{{ i.con }}</textarea>
+            </div>
+
+        {% endfor %}
+
+    </div>
+    
+</form> -->
+ 

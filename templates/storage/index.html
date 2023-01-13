@@ -1,0 +1,73 @@
+{% extends 'base.html '%}
+{% load static %}
+{% block con %}
+
+
+<div class="a" style="color: white; padding-top: 50px;">
+    <div class ="container mt-5 mb-5">
+        <h1><b>Storage</b></h1>
+    
+        <div class="text-end">
+            <a  href="{% url 'storage:upload' %}" class="btn btn-outline-light">File ADD</a>
+        </div>
+
+        
+          
+        <div class="row">
+          {% for i in pro %}
+          <div class="col-lg-4 mt-5 ">
+            <div class="card text-white mb-3 b border-info" style="max-width: 300px; color:white">
+              <div class="card-header bg-transparent border-info">
+                {{i.project}}
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">{{ i.content }}</h5>
+              </div>
+              <div class="card-footer text-end bg-transparent border-info">
+                <!-- <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#star">
+                  Storage
+                </button> -->
+                <a href = "{% url 'storage:show' i.id %}"><button type="button" class="btn btn-outline-light">저장소로</button></a>
+                {% if user == i.uploader %}
+                    <a href = "{% url 'storage:delete' i.id %}"><button type="button" class="btn btn-outline-danger">Del</button></a>
+                {% endif %}
+              </div>
+            </div>
+          </div>     
+          {% endfor %}
+        </div>
+           
+    </div>    
+    
+</div>
+
+<!-- {% for i in pro %}
+  {% if id == ipk %}
+  <div class="modal fade" id="star" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"><a href = "{% url 'storage:show' i.id %}">{{i.project}} 저장소</a></h5>
+            </div>
+
+            <div class="modal-body text-center">
+              {% for i in fiset %}
+              <ul>
+                <li class="list-group-item c" style="color: black;">{{ i.con }}</li>
+                <li class="list-group-item c" style="color: black;"> <a href="{{ i.file.url }}" download><button class="btn btn-outline-light">{{ i.file.url }}</button></a></li>
+              </ul>
+                {% endfor %}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+            </div>
+        
+        </div>
+    </div>
+  </div>
+  {% endif %}
+{% endfor %} -->
+
+{% endblock %}
+
+

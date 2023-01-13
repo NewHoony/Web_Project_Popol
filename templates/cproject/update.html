@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block con %}
+
+<div class ="container-fluid a" style="color: white;">
+
+    <div class="container-fluid" style="padding-top: 50px;">
+        <h1><b>Update Page</b></h1><br>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-lg-2 text-center" style="padding-top: 20px;">
+                    <button class="btn btn-outline-light">Update</button>
+                    <a href ="{% url 'cproject:show' pro.id %}"><button type="button" class="btn btn-outline-light">뒤로가기</button></a>
+                    <br><br>
+                </div>
+
+
+                <div class="col-lg-10">
+                    <label class="form-label">제목 수정</label><br>
+                    <input class="form-control"  style="width: 300px;" placeholder="project" name="pro" value="{{pro.project}}"><br>
+                    <label class="form-label">내용 수정</label><br>
+                    <textarea class="form-control"  style="height : 550px; width: 100%;" name ="con">{{pro.content}}</textarea>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock%}
+

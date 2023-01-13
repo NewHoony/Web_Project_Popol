@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block con %}
+
+<div class ="container-fluid a" style="color: white;">
+
+
+    <div class="container" style="padding-top: 75px;">
+        <h1><b>Note Create</b></h1><br><br>
+            <form method="post" name="createForm">
+                {% csrf_token %}
+
+                    <div class="mb-3 mt-3" style="padding-top: 15px;">
+                        <label class="form-label">SUBJECT</label>
+                        <input type="text" name ="sub" class="form-control">
+                    </div>
+
+                    <div class="mb-3" style="padding-top: 5px;">
+                        <label class="form-label">WRITER</label>
+                        <input type="text" class="form-control" value="{{ user }}" style="width:fit-content"  disabled>
+                    </div>
+
+                    <div class="mb-3" style="padding-top: 5px;">
+                        <label class="form-label">CONTENT</label>
+                        <textarea class="form-control" name ="con" style="height: 300px;"></textarea>
+                    </div>
+
+                    <div class="text-center mt-3">
+                        <button type="button" class="btn btn-outline-light" onclick="check()">생성</button>
+                    </div>
+
+            </form>
+            
+        </div>
+    </div>
+</div>
+
+<script>
+
+    function check(){
+        var createForm = document.createForm;
+        var sub = createForm.sub.value;
+        var con = createForm.con.value;
+
+        if(!sub){
+            window.alert("Subject no input");
+        }else if(!con){
+            window.alert("Content no input");
+        }else{
+            createForm.submit();
+        }
+    }
+
+</script>    
+
+{% endblock%}
+

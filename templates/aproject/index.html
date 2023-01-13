@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+{% load mathfilters %}
+{% block con %}
+
+<div class ="container-fluid a" style="color: white; padding-top: 50px;">
+
+
+    <div class="container-fluid" style="padding-top: 30px;">
+        <h1><b>Network Project Page</b></h1>
+        <div class="text-end" style="padding-top: 15px;">
+            <a href = "{% url 'storage:index' %}"><button class="btn btn-outline-light">Document Repository</button></a>
+            <a href = "{% url 'aproject:create' %}"><button class="btn btn-outline-light">Create</button></a>
+        </div>
+        <table class="table mt-3 table-borderless">
+            <thead style="color: white;">
+                <tr>
+                    <th scope="col" width=5%>No</th>
+                    <th scope="col" width=10%>Projcet</th>
+                    <th scope="col" width=10%>Tech</th>
+                    <th scope="col" width=65%>Content</th>
+                    <th scope="col" width=10%>Maker</th>
+                   
+                </tr>
+            </thead>
+            <tbody style="color: white;">
+                {% if pset %}
+                    {% for i in pset %}
+                        <tr>
+                            <th scope="row">{{ pset.start_index|add:forloop.counter0}}</th>
+                            <td><a href="{% url 'aproject:show' i.id %}">{{i.summary2}}</a></td>
+                            <td>{{i.tech}}</td>
+                            <td>{{i.summary}}</td>
+                            <td>{{i.maker}}</td>
+                        </tr>
+                    {% endfor %}
+                {% else %}
+
+                    <tr>
+                    {% if ss %}
+                        <th colspan="5" class="text-center">
+                            <b>검색결과가 없습니다</b>
+                        </th>
+                    {% else %}
+                        <th colspan="5" class="text-center">
+                            <b>게시글이 없습니다</b>
+                        </th>
+                    {% endif %}
+                    
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+                    <!-- 페이징 기능 -->
+
+                    <nav aria-label="Page navigation example" class="mt-5">
+                        <ul class="pagination justify-content-center">
+                            {% if pset.has_previous %}
+                                <li class="page-item">                   
+                                    <a class="page-link" href="{% url 'aproject:index' %}?page=1&ss={{ss}}&cate={{cate}}">Home</a>
+                                </li>
+                                <li class="page-item">                   
+                                    <a class="page-link" href="{% url 'aproject:index' %}?page={{ pset.previous_page_number }}&ss={{ss}}&cate={{cate}}">이전</a>
+                                </li>        
+                            {% else %}                    
+                            <li class="page-item disabled">
+                                <a class="page-link">Home</a>
+                            </li>
+                            <li class="page-item disabled">
+                                <a class="page-link">이전</a>
+                            </li>                      
+                            {% endif %}
+                            
+            
+                            {% for i in pset.paginator.page_range %}
+                                {% if i >= pset.number|sub:5 and pset.number|add:4 >= i %}
+                                    <li class="page-item {% if i == pset.number%} active {% endif %}"><a class="page-link" href="{% url 'aproject:index' %}?page={{i}}&ss={{ss}}&cate={{cate}}">{{i}}</a></li>
+                                {% endif %}
+                            {% endfor %}
+                            
+                            {% if pset.has_next %}
+                                <li class="page-item">
+                                    <a class="page-link" href="{% url 'aproject:index' %}?page={{ pset.next_page_number }}&ss={{ss}}&cate={{cate}}">다음</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="{% url 'aproject:index' %}?page={{ pset.paginator.num_pages }}&ss={{ss}}&cate={{cate}}">마지막</a>
+                                </li>
+                            {% else %}
+                                <li class="page-item disabled">
+                                    <a class="page-link">다음</a>
+                                </li>
+                                <li class="page-item disabled">
+                                    <a class="page-link">마지막</a>
+                                </li>
+                            {% endif %}
+            
+                        </ul>
+                    </nav>
+                
+                    <br><br>
+                        <form>
+                            <div class="row mb-5 mt-4 justify-content-center" style="padding-left: 150px;"> 
+                                <div class="col-lg-1 text-end">           
+                                        <select class="form-select mb-3" name ="cate" aria-label=".form-select-lg example">
+                                            <option value="pro" {% if cate == "pro"%} selected {% endif %}>제목</option>
+                                            <option value="mak" {% if cate == "mak"%} selected {% endif %}>작성자</option>
+                                            <option value="con" {% if cate == "con"%} selected {% endif %}>내용</option>
+                                        </select>                        
+                                </div>
+            
+                                <div class="col-lg-9 text-end">
+                                    <input type ="text" name="ss" class="form-control" value="{{ss}}">
+                                    <br>
+                                </div>
+            
+                                <div class="col-lg-2">                    
+                                    <button class="btn btn-outline-light">검색</button>
+                                    <a href="{% url 'aproject:index' %}" class="btn btn-outline-light">Home</a>                    
+                                </div>
+                            </div>
+                        </form>  
+    </div>
+</div>
+
+
+{% endblock %}

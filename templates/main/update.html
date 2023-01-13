@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block con %}
+<div class="ab" style="padding-top: 50px;">
+    <div class="container mb-5"  style="font-size: 20px; font-weight: bold; color:white;">
+        <h1>{{user}}'s Update</h1>
+        <hr>
+
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="mb-3 mt-5">
+                <label class="form-label">USERNAME</label><br>
+                <input type ="text" value ="{{user}}" disabled>
+            </div>
+            <div class="mb-3 mt-4">
+                <label class="form-label">Password</label><br>
+                <input type ="password" name="upass">
+            </div>
+            <div class="mb-3 mt-4">
+                <label class="form-label">Email</label><br>
+                <input type ="text" value ="{{user.email}}" name="umail">
+            </div>
+            <div class="mb-3 mt-4">
+                <label class="form-label">Commnet</label><br>
+                <textarea class="form-control" name="ucomn" placeholder="자기소개"></textarea>
+            </div>
+            <div class="mb-3 mt-4">
+                <label class="form-label">Profile Photo</label><br>
+                <input type="file" class="form-control" name="upic">
+            </div>
+            <div class="text-end">
+                <button class = "btn btn-outline-light">Save</button>
+                <a href="{% url 'main:profile' %}"><button type="button" class ="btn btn-outline-light">뒤로가기</button></a>
+            </div>
+        </form>
+
+    </div>
+</div>
+{% endblock%}

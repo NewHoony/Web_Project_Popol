@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block con %}
+
+<div class="a" style="color: white; padding-top: 50px;">
+    <div class ="container mt-5 mb-5">
+        <h1><b>{{pro.project}}</b></h1><br>
+    
+        <div class="row">
+    
+                     
+                {% for i in fiset %}  
+                <div class="col-lg-6 mt-5 ">
+                    <ul class="list-group list-group-flush">    
+                        <li class="list-group-item c" style="color: white;">{{ i.con }}</li>
+                        <li class="list-group-item c"> <a href="{{ i.file.url }}" download><button class="btn btn-outline-info">{{ i.file.url }}</button></a></li><br>
+                    </ul>
+                </div>
+                {% endfor %}
+                
+                
+        </div>
+    </div>
+</div>
+
+
+
+
+
+{% endblock%}
+
+
+
+
+
+
+ 
